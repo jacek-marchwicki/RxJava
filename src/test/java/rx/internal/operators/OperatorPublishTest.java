@@ -402,7 +402,7 @@ public class OperatorPublishTest {
                     tss.add(ts);
                     obs.subscribe(ts);
                 }
-                
+
                 Subscription s = co.connect();
                 
                 for (TestSubscriber<Integer> ts : tss) {
@@ -413,6 +413,14 @@ public class OperatorPublishTest {
                 }
                 s.unsubscribe();
             }
+        }
+    }
+
+
+    @Test
+    public void testObserveOnMultipleTimes() {
+        for (int i = 0; i<100; i++) {
+            testObserveOn();
         }
     }
 }
